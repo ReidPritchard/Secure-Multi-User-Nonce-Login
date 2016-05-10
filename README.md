@@ -27,3 +27,7 @@ This helps with security as no plain passwords are stored so in the unfortunate 
 The db can hold other infromation that you may want to keep stored with you user.
 If so you may want to set your socket.x = xFromDB; to have all the needed infromation easily accesable.
 
+#Questions#
+
+If you have any questions about the code feel free to email me at rpritchard@students.stab.org. 
+If there are any issue please report them and I will fix them as soon as possible
