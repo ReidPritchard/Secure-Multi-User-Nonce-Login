@@ -124,7 +124,7 @@ $('.login').on('submit', function(event_) {
           working = false;
 
         // The amount of delay is set at the end of the setTimeout function
-        }, 4000);
+        }, 2000);
 
       };
 

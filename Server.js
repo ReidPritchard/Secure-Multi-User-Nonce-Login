@@ -57,7 +57,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('login', function(password, username){
       //  Initializes as false just incase
       //  It really should happen just makes me feel better
-      var good_login = false;
+      socket.loggedin = false;
 
       ////////////////////////////////////////////////////////
       ////  Creation of list for Passwords and Usernames  ////
@@ -82,6 +82,13 @@ io.sockets.on('connection', function (socket) {
       // On the db query's end: 
       q.on('end', function(){
 
+        // Checks to see if there are any accounts in db with the entered username
+        // If there are no usernames matching in the database accounts will be 0
+        if(accounts.length == 0){
+
+          // If there are no usernames the socket sends loginRes with a false message.
+          socket.emit('loginRes', socket.loggedin);
+        }
       // it first loops through all the items that were found in the db
       // As I had said earier there should only be ONE if the db is run correctly
         for(var i=0; i < accounts.length; i++){
@@ -100,12 +107,10 @@ io.sockets.on('connection', function (socket) {
             // refresh the page after one second to speed up proccess
             setTimeout(function() {
 
-              // good_login is set to true as the login was succesful
-              good_login = true;
-
               // the socket then stores the username and loggedin 
               // This is used to make sure the session is verified and can trace actions done by a certian user 
               socket.user = username;
+              // Sets loggedin to true as the login was succesful
               socket.loggedin = true;
 
               socket.emit('loginRes', socket.loggedin);
@@ -117,7 +122,8 @@ io.sockets.on('connection', function (socket) {
             //  If the password does NOT equal the password in the db:
             //  A time function is added to prevent from spamming tries
             setTimeout(function() {
-              socket.loggedin = false;
+
+              // Loggedin is default false (set on line 60)
               socket.emit('loginRes', socket.loggedin);
               // a simple emit back to the login page is done here, but...
               // you could add a invalid tries counter (with timestamp) to furthur prevent spam
