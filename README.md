@@ -29,5 +29,5 @@ If so you may want to set your socket.x = xFromDB; to have all the needed infrom
 
 #Questions#
 
-If you have any questions about the code feel free to email me at rpritchard@students.stab.org. 
+If you have any questions about the code feel free to create an issue, I will get to it as soon as possible. 
 If there are any issue please report them and I will fix them as soon as possible
