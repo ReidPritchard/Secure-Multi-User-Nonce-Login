@@ -101,7 +101,7 @@ io.sockets.on('connection', function (socket) {
 
 
           // The hashed password + nonce is then compaired to the password sent by the client side
-          if(hashedCombine == password){
+          if(hashedCombine === password){
             // If the passwords match you know that the user enterd the proper password
             // The Timeout is to add a delay to the users login proccess in hopes to prevent spamming tries that
             // refresh the page after one second to speed up proccess
