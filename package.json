@@ -6,7 +6,7 @@
     "any-db": "2.1.x",
     "any-db-sqlite3": "*",
     "consolidate": "0.13.x",
-    "express": "3.0.*",
+    "express": "4.0.0",
     "hogan.js": "3.0.x",
     "js-sha256": "^0.3.0",
     "sha256": "^0.2.0",
