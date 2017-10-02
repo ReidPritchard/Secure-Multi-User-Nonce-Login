@@ -6,11 +6,17 @@
     "any-db": "2.1.x",
     "any-db-sqlite3": "*",
     "consolidate": "0.13.x",
-    "express": "4.0.0",
+    "express": "4.16.0",
     "hogan.js": "3.0.x",
     "js-sha256": "^0.3.0",
     "sha256": "^0.2.0",
-    "socket.io": "^1.0.1",
-    "sqlite3": "3.1.x"
-  }
+    "socket.io": "^2.0.2",
+    "sqlite3": "3.1.x",
+    "snyk": "^1.41.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
